@@ -69,7 +69,7 @@ struct ProfileView: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 20) {
                 HStack(spacing: 14) {
-                    BeastSeal(card: store.equippedCard).frame(width: 60, height: 60)
+                    FlorgugrelBeastArtwork(card: store.equippedCard).frame(width: 60, height: 60)
                     VStack(alignment: .leading, spacing: 6) {
                         Text(store.data.nickname).font(.inkTitle(24)).foregroundColor(InkTheme.textPrimary)
                         Text("\(store.rankTitle) · Lv. \(store.level)").font(.inkBody(13)).foregroundColor(InkTheme.gold)

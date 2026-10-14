@@ -70,7 +70,7 @@ struct HomeView: View {
     }
     private var header: some View {
         HStack(spacing: 12) {
-            BeastSeal(card: store.equippedCard)
+            FlorgugrelBeastArtwork(card: store.equippedCard)
                 .frame(width: 44, height: 44)
             VStack(alignment: .leading, spacing: 3) {
                 Text("山海有约，落子有声").font(.inkBody(11)).foregroundColor(InkTheme.textSecondary)

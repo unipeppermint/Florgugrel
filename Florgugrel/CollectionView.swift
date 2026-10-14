@@ -53,17 +53,25 @@ struct CollectionView: View {
                 if store.data.equipped == card.id { Image(systemName: "checkmark.seal.fill").foregroundColor(InkTheme.suitRed) }
                 else if !unlocked { Image(systemName: "lock.fill").foregroundColor(InkTheme.ink.opacity(0.4)) }
             }
-            BeastSeal(card: card, ink: InkTheme.ink.opacity(unlocked ? 0.85 : 0.4))
-                .frame(height: 104).frame(maxWidth: .infinity)
+            FlorgugrelBeastArtwork(card: card)
+                .padding(6)
+                .frame(height: 124)
+                .frame(maxWidth: .infinity)
             Text(card.name).font(.inkTitle(20)).foregroundColor(InkTheme.ink)
             HStack {
+                Circle()
+                    .fill(card.rarity.color)
+                    .frame(width: 5, height: 5)
                 Text(card.rarity.rawValue)
                 Spacer()
                 Text(unlocked ? "已拥有" : "◈ \(card.price)")
             }.font(.inkBody(11)).foregroundColor(InkTheme.ink.opacity(0.7))
         }
         .padding(14).background(RoundedRectangle(cornerRadius: 14).fill(InkTheme.parchment))
-        .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(card.rarity.color, lineWidth: 2))
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .strokeBorder(card.rarity.color.opacity(0.35), lineWidth: 1)
+        )
         .accessibilityElement(children: .combine)
     }
 }
@@ -78,7 +86,9 @@ struct BeastDetailView: View {
             ScrollView {
                 VStack(spacing: 24) {
                     KickerText(text: "山 海 图 鉴")
-                    BeastSeal(card: card, ink: card.rarity.color).frame(width: 164, height: 164)
+                    FlorgugrelBeastArtwork(card: card)
+                        .padding(12)
+                        .frame(width: 208, height: 208)
                     Text(card.name).font(.inkTitle(32)).foregroundColor(InkTheme.textPrimary)
                     InfoChip(text: card.rarity.rawValue, gold: true)
                     Text(card.detail).font(.inkBody(16)).foregroundColor(InkTheme.textSecondary)

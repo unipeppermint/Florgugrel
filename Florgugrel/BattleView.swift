@@ -266,7 +266,7 @@ struct BattleView: View {
                 } label: {
                     VStack(alignment: .leading, spacing: 10) {
                         Text(card.label).font(.inkBody(14, weight: .semibold))
-                        BeastSeal(card: store.equippedCard, ink: InkTheme.ink.opacity(0.6))
+                        FlorgugrelBeastArtwork(card: store.equippedCard)
                             .frame(height: 30).frame(maxWidth: .infinity)
                     }
                         .foregroundColor(card.suit.isRed ? InkTheme.suitRed : InkTheme.ink)

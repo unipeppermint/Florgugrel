@@ -57,3 +57,15 @@ python3 scripts/check-release.py /private/tmp/Handcraft-release.xcarchive/Produc
 ## 图鉴展示调整（2026-10-08）
 
 按用户反馈恢复原有 12 种图形，保留印章边框，名称与稀有度独立显示；详情、头像和手牌同步采用图形。已重新通过 Debug 模拟器构建，并在 iPhone SE 专用模拟器检查图鉴和详情页。上述 Release 归档为此调整前的版本，提交前应从最新源代码重新归档。
+
+## 神兽实体插画调整（2026-10-14）
+
+按用户反馈，将上述抽象图形进一步替换为 12 张独立的透明背景神兽插画。去掉印章外框，图鉴预览高度调整为 124 pt，详情图为 208 pt；首页与个人页头像、对局手牌共享 `FlorgugrelBeastArtwork.swift`。保留原有神兽 ID、名称、稀有度、解锁价格与装备逻辑。
+
+全部 12 项资源已复制到项目 Assets，检查为正方形 RGBA PNG，逐图提示词与原图路径记录于 `generated-images/Florgugrel-beasts-prompts.json`。Debug 模拟器构建通过，iPhone SE（第 3 代）/ iOS 26.5 实测首页头像、牌库和九尾狐详情显示正常，图片透明且不受文字颜色染色。截图为 `05-beast-collection.png` 与 `06-beast-detail.png`。项目配置逐字对照未改变；未重新生成 Release 归档，发布时需从当前代码归档。
+
+## 水墨风格统一验收（2026-10-14）
+
+根据用户对整体协调性的反馈，12 张实体神兽进一步重绘为水墨淡彩版，以首页主视觉作为风格参考，保留透明背景及原有识别特征。卡面增加留白，稀有度边框改为淡细线并补充小色点。完整提示词、参考图和最终路径记录于 `generated-images/Florgugrel-beasts-ink-prompts.json`；上一版彩色图片保存在 `generated-images/beasts-color-v1/`，不参与打包。
+
+全部 12 个最终文件均通过正方形 RGBA PNG 检查，最终 Debug 模拟器构建通过。iPhone SE（第 3 代）/ iOS 26.5 检查首屏卡面、九尾狐详情与鲲鹏详情，浅色身体和深墨羽翼均能在深色背景中辨识；卡面名称、稀有度与解锁状态保持可读。实拍截图为 `07-ink-collection.png` 与 `08-ink-detail.png`。无玩法与存档改动，未新增依赖；Bundle ID、签名和发布配置逐字对照未变。Release 归档仍需在提交前从最新代码重新生成。

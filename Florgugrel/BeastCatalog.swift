@@ -5,23 +5,10 @@ struct BeastCard: Identifiable {
     let card: String
     let name: String
     let rarity: Rarity
-    var symbol: String {
-        switch id {
-        case "fuzhu": return "leaf.fill"
-        case "zheng": return "flame.fill"
-        case "dangkang": return "sun.max.fill"
-        case "chenghuang": return "wind"
-        case "jingwei": return "drop.fill"
-        case "baize": return "eye.fill"
-        case "bifang": return "sparkles"
-        case "qilin": return "star.fill"
-        case "wenyao": return "moon.stars.fill"
-        case "jiuwei": return "moon.fill"
-        case "kunpeng": return "cloud.fill"
-        case "zhulong": return "bolt.fill"
-        default: return "suit.spade.fill"
-        }
+    var artworkName: String {
+        "FlorgugrelBeast-" + id
     }
+
     let detail: String
     let price: Int
     enum Rarity: String, CaseIterable {
