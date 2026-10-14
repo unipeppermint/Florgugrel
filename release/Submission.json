@@ -1,0 +1,10 @@
+{
+  "publisher_name": "",
+  "support_email": "",
+  "review_contact": "",
+  "territories": [],
+  "privacy_url": "",
+  "support_url": "",
+  "mainland_china_game_approval": "",
+  "notes": "填写真实信息后，把已发布的 HTTPS 地址写入 Info.plist 的 HandcraftPrivacyURL 与 HandcraftSupportURL。不要使用示例网址。此文件不会打包进应用。"
+}
